@@ -1,0 +1,109 @@
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 3rem var(--gutter);
+  align-items: end;
+}
+
+.contact__primary {
+  grid-column: 1 / span 7;
+}
+
+.contact__prompt {
+  margin-bottom: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.contact__email {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: clamp(1.35rem, 5.1vw, 3.1rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  background: linear-gradient(var(--color-accent), var(--color-accent)) left
+    bottom / 0 2px no-repeat;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--color-border-strong);
+  transition:
+    background-size var(--duration) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.contact__email:hover {
+  color: var(--color-accent);
+  background-size: 100% 2px;
+}
+
+.contact__flag {
+  margin-left: 0.75rem;
+}
+
+.contact__actions {
+  margin-top: 2rem;
+}
+
+.contact__links {
+  grid-column: 9 / span 4;
+  border-top: 1px solid var(--color-border);
+}
+
+.contact__link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.2rem 1rem;
+  align-items: center;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.contact__link .mono-label {
+  grid-column: 1;
+}
+
+.contact__link-text {
+  grid-column: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.6rem;
+  overflow-wrap: anywhere;
+  font-size: var(--text-md);
+  letter-spacing: -0.01em;
+}
+
+.contact__link svg {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--color-text-secondary);
+  transition:
+    transform var(--duration) var(--ease),
+    color var(--duration-fast) var(--ease);
+}
+
+.contact__link:hover {
+  color: var(--color-accent);
+}
+
+.contact__link:hover svg {
+  color: var(--color-accent);
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 1020px) {
+  .contact__primary {
+    grid-column: 1 / span 12;
+  }
+
+  .contact__links {
+    grid-column: 1 / span 12;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__actions .btn {
+    width: 100%;
+  }
+}

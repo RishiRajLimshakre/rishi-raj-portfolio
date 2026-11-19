@@ -1,0 +1,46 @@
+.education__item {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.75rem var(--gutter);
+  align-items: start;
+  padding-block: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-block: 1px solid var(--color-border);
+}
+
+.education__period {
+  grid-column: 1 / span 3;
+  padding-top: 0.55rem;
+}
+
+.education__main {
+  grid-column: 4 / -1;
+}
+
+.education__degree {
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2.1rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.education__field {
+  margin-top: 0.3rem;
+  font-size: var(--text-md);
+  color: var(--color-accent);
+}
+
+.education__institution {
+  margin-top: 0.15rem;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 860px) {
+  .education__period,
+  .education__main {
+    grid-column: 1 / -1;
+  }
+
+  .education__period {
+    padding-top: 0;
+  }
+}

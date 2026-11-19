@@ -1,0 +1,54 @@
+/* Skills as ruled typographic rows. No bars, no ratings. */
+.skills__list {
+  border-top: 1px solid var(--color-border);
+}
+
+.skills__row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0.75rem var(--gutter);
+  align-items: baseline;
+  padding-block: clamp(1rem, 2vw, 1.4rem);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills__category {
+  grid-column: 1 / span 3;
+}
+
+.skills__items {
+  grid-column: 4 / -1;
+  margin: 0;
+}
+
+.skills__items ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0;
+}
+
+.skills__item {
+  font-size: clamp(1.1rem, 0.95rem + 0.7vw, 1.55rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.skills__item:not(:last-child)::after {
+  content: "/";
+  margin-inline: 0.7em;
+  font-weight: 400;
+  color: var(--color-border-strong);
+}
+
+.skills__item:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 720px) {
+  .skills__category,
+  .skills__items {
+    grid-column: 1 / -1;
+  }
+}

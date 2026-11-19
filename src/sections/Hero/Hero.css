@@ -1,0 +1,138 @@
+.hero {
+  padding-block: clamp(2.75rem, 7vw, 5.5rem) clamp(3.5rem, 7vw, 6rem);
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.hero__eyebrow::before {
+  content: "";
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+/* The name is the hero. Tight tracking, stacked, second line offset. */
+.hero__name {
+  font-size: var(--text-display);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.hero__line {
+  display: block;
+}
+
+.hero__line--indent {
+  margin-left: clamp(0rem, 9vw, 8rem);
+}
+
+.hero__dot {
+  color: var(--color-accent);
+}
+
+.hero__lower {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2.5rem var(--gutter);
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  align-items: end;
+}
+
+.hero__copy {
+  grid-column: 1 / span 6;
+}
+
+.hero__intro {
+  max-width: 34ch;
+  font-size: var(--text-lg);
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.hero__aside {
+  grid-column: 8 / span 5;
+}
+
+/* Photo slot, ready for an optional portrait. */
+.hero__photo {
+  max-width: 260px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--color-border);
+  padding: 0.5rem;
+}
+
+.hero__photo img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.hero__meta {
+  border-top: 1px solid var(--color-border);
+}
+
+.hero__meta-row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 1020px) {
+  .hero__copy {
+    grid-column: 1 / span 7;
+  }
+  .hero__aside {
+    grid-column: 8 / span 5;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero__copy,
+  .hero__aside {
+    grid-column: 1 / -1;
+  }
+
+  .hero__intro {
+    max-width: 38ch;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__line--indent {
+    margin-left: 0;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero__meta-row {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
