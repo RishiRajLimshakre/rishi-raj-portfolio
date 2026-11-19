@@ -1,4 +1,5 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollManager from "./components/ScrollManager/ScrollManager";
@@ -30,6 +31,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </HashRouter>
   );
 }
