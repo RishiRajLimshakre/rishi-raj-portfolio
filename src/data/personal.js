@@ -66,7 +66,7 @@ contact: {
   buyMeACoffee: {
     label: "Buy Me a Coffee",
     display: "Fuel my next commit ☕",
-    url: "https://buymeacoffee.com/rishirajlimshkare",
+    url: "https://buymeacoffee.com/rishirajlimshakre",
   },
   resume: {
     label: "Resume",
