@@ -63,6 +63,11 @@ contact: {
     display: "Open to opportunities, closed to bugs.",
     url: "https://www.linkedin.com/in/rishiraj-limshakre/",
   },
+  buyMeACoffee: {
+    label: "Buy Me a Coffee",
+    display: "Fuel my next commit ☕",
+    url: "https://buymeacoffee.com/rishirajlimshkare",
+  },
   resume: {
     label: "Resume",
     url: "/resume.pdf",
