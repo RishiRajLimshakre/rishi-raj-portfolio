@@ -55,13 +55,13 @@ contact: {
   email: { value: "rishirajlimshakre@gmail.com" },
   github: {
     label: "GitHub",
-    display: "github.com/RishiRajLimshakre",
+    display: "It works on my machine",
     url: "https://github.com/RishiRajLimshakre",
   },
   linkedin: {
     label: "LinkedIn",
-    display: "linkedin.com/in/rishi-raj-limshakre",
-    url: "https://www.linkedin.com/in/rishi-raj-limshakre/",
+    display: "Open to opportunities, closed to bugs.",
+    url: "https://www.linkedin.com/in/rishiraj-limshakre/",
   },
   resume: {
     label: "Resume",

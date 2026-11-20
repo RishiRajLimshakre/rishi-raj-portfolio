@@ -68,7 +68,7 @@ export default function Navbar() {
       <div className="container navbar__inner">
         <Link to="/" className="navbar__wordmark" onClick={handleWordmarkClick} aria-label={`${personal.fullName}, home`}>
           <span className="navbar__mark">{personal.initials}</span>
-          <span className="navbar__name">{personal.fullName}</span>
+          {/* <span className="navbar__name">{personal.fullName}</span> */}
         </Link>
 
         <nav className="navbar__nav" aria-label="Primary">
