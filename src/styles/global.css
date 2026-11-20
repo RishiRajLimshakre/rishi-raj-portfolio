@@ -8,15 +8,17 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Legacy Edge / IE */
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Brave, Safari, Opera */
 }
 
 body {
