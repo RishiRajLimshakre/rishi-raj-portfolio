@@ -25,12 +25,13 @@ export const projects = [
     fullName: "DocMirror",
     featured: true,
     summary:
-      "A document editing platform with rich-text editing, A4 pagination, document management and export.",
+      "A WORD document editing platform with Live PDF Preview.",
     overview:
-      "DocMirror is a document editing platform featuring rich-text editing, A4 pagination, document management and document export capabilities.",
+      "DocMirror is a document editing platform featuring rich-text editing, A4 pagination, document management, document export capabilities and Live PDF Preview .",
     purpose:
-      "A web-based editor where documents are written in rich text, laid out on A4 pages and exported as PDF or DOCX.",
+    "To solve the issue of mis-alignment, You can see how the word will look before exporting ",
     features: [
+      "Live PDF Preview",
       "Rich-text document editing",
       "A4 page pagination",
       "PDF export",
@@ -53,9 +54,9 @@ export const projects = [
     summary:
       "A civic issue reporting platform for geo-tagged reporting and structured issue management.",
     overview:
-      "LokSetu is a civic issue reporting platform designed to support geo-tagged reporting and structured issue management.",
+      "LokSetu is a civic issue reporting platform designed to support local issue management with the help of geo-location and image proof.",
     purpose:
-      "To give citizens a structured way to report civic issues with a location, and to give administrators a managed workflow for handling them.",
+      "To give citizens a structured way to report civic issues with a location & Image-proof, and to give administrators a managed workflow for handling them without relay on external Authoritites.",
     features: [
       "Geo-tagged civic issue reporting",
       "JWT authentication",
@@ -78,8 +79,8 @@ export const projects = [
     featured: false,
     summary: "A gym progress tracker with workout logging and a persistent workout history.",
     overview:
-      "MuscleMap is a gym progress tracking application with workout logging and persistent workout history.",
-    purpose: "To record workouts as they happen and keep a lasting history of training progress.",
+      "MuscleMap is a Web-based gym progress tracking application with workout logging and persistent workout history.",
+    purpose: "To record workouts as they happen and keep a lasting history of training progress without downloading any application.",
     features: [
       "Workout tracking",
       "REST API development",

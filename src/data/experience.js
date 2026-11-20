@@ -8,9 +8,9 @@ export const experience = [
     period: "May 2026 – July 2026",
     points: [
       "Worked on an industrial grain-quality application.",
-      "Worked with Windows and Ubuntu kiosk deployments.",
+      "Worked on multiple nested JSON lists.",
       "Integrated frontend functionality with Python REST APIs using cURL.",
-      "Worked with BIS, ISO and custom rejection profiles, including device onboarding, activation and settings.",
+      "Worked on Plotly to plot each grains information on application.",
     ],
   },
   {
@@ -20,7 +20,7 @@ export const experience = [
     title: "Full Stack Developer Intern",
     period: "June 2025 – September 2025",
     points: [
-      "Developed responsive frontend interfaces.",
+      "Developed a responsive E-commerce for clothing .",
       "Contributed to a 10% reduction in page-load time.",
       "Improved UI based on stakeholder feedback.",
     ],
