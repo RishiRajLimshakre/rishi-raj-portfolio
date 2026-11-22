@@ -1,74 +1,135 @@
 # Rishi Raj Limshakre — Portfolio
 
-A personal portfolio built with React, Vite, React Router and hand-written CSS. No backend, no Tailwind, two runtime dependencies beyond React (`react-router-dom`, `lucide-react`).
+A personal developer portfolio built with **React, Vite, React Router, and custom CSS**. It showcases selected projects, technical skills, education, and professional experience through a responsive interface with light and dark themes.
 
-## Run it
+**Live Portfolio:** [rishirajlimshakre.in](https://rishirajlimshakre.in)
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, JavaScript, HTML5, CSS3
+- **Build Tool:** Vite
+- **Routing:** React Router
+- **Icons:** Lucide React
+- **Deployment:** Vercel
+
+---
+
+## Features
+
+- Responsive layout for desktop, tablet, and mobile
+- Light and dark theme support
+- Dedicated project detail pages
+- Reusable React components
+- Smooth navigation and scroll interactions
+- Custom CSS animations and visual effects
+- Centralized data files for easy content updates
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
 
 ```bash
+git clone https://github.com/RishiRajLimshakre/portfolio.git
+cd portfolio
 npm install
-npm run dev      # local development
-npm run build    # production build into /dist
-npm run preview  # serve the production build locally
 ```
 
-## Where to edit things
+### Development
 
-| I want to change…                     | Edit this file                       |
-| ------------------------------------- | ------------------------------------ |
-| Name, intro, about text, education    | `src/data/personal.js`               |
-| Email, GitHub, LinkedIn, resume name  | `src/data/personal.js` → `contact`   |
-| Add / edit / remove a project         | `src/data/projects.js`               |
-| Add / edit / remove skills            | `src/data/skills.js`                 |
-| Experience entries                    | `src/data/experience.js`             |
-| Colours, fonts, spacing               | `src/styles/variables.css`           |
-
-Project detail pages (`/#/projects/<id>`) are generated from `projects.js`, so a new entry there gets a card and a page automatically.
-
-## Replace the placeholders
-
-Anything still needing real information is marked **To confirm** (dashed accent tag) or **to be added** (dashed disabled button) on the page.
-
-1. **Project screenshots** — copy your images into `public/images/projects/` using the filenames in `projects.js` (`docmirror.png`, `loksetu.png`, `musclemap.png`), or change the paths. Until then a "Screenshot pending" frame is shown. Images are shown whole (never cropped or stretched). For extra detail-page images, fill the `screenshots` array: `{ src, alt, caption }`.
-2. **GitHub / live demo URLs** — set `repoUrl` and `liveUrl` per project. While `null`, the buttons render disabled.
-3. **Email, GitHub, LinkedIn** — update `personal.contact` and remove `placeholder: true`.
-4. **Resume** — replace `public/resume.pdf` (currently a one-line placeholder file).
-5. **Experience** — fill in `src/data/experience.js` once the company, title, dates and new wording are confirmed. Nothing from the old CV is used.
-6. **Photograph (optional)** — put a file in `public/images/profile/` and set `photo` in `personal.js`. The hero shows it automatically.
-
-## Routing note
-
-The site uses `HashRouter`, so URLs look like `/#/projects/docmirror`. This works on any static host with no configuration. If you want clean URLs on Vercel, switch to `BrowserRouter` in `src/App.jsx` and add a `vercel.json`:
-
-```json
-{ "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }] }
+```bash
+npm run dev
 ```
 
-## Deploy to Vercel
+### Production Build
 
-1. Push the project to GitHub.
-2. In Vercel choose **Add New → Project** and import the repository.
-3. Framework preset: **Vite**. Build command `npm run build`, output directory `dist`.
-4. Deploy. Update the `<title>` / meta description in `index.html` if your wording changes, and add a canonical URL and `og:image` once the domain is known.
-
-## Structure
-
+```bash
+npm run build
 ```
-public/            favicon, resume.pdf, images/{projects,profile}
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+---
+
+## Project Structure
+
+```text
+public/
+  images/
+    projects/
+    profile/
+  resume.pdf
+
 src/
-  components/      Navbar, Footer, Button, SectionHeading, ProjectCard, ProjectImage, Reveal, ScrollManager
-  sections/        Hero, Projects, About, Skills, Experience, Education, Contact
-  pages/           Home, ProjectDetails (shared layout), NotFound
-  hooks/           useReveal, useSectionNav
-  data/            personal, projects, skills, experience
-  styles/          variables, global, animations, responsive
+  components/
+    Navbar/
+    Footer/
+    ProjectCard/
+    ProjectImage/
+    Reveal/
+    ...
+  sections/
+  pages/
+  hooks/
+  data/
+    personal.js
+    projects.js
+    skills.js
+    experience.js
+  styles/
+    variables.css
+    global.css
+    animations.css
+    responsive.css
+  App.jsx
+  main.jsx
 ```
 
-## Final checklist
+---
 
-- [ ] Real project screenshots added
-- [ ] Repository and live demo URLs added
-- [ ] Email, GitHub, LinkedIn confirmed
-- [ ] Real `resume.pdf` in `public/`
-- [ ] Experience content confirmed
-- [ ] `index.html` description / social image reviewed
-- [ ] `npm run build` passes
+## Customization
+
+Portfolio content is maintained in centralized data files:
+
+| Content | File |
+|---|---|
+| Personal information and contact details | `src/data/personal.js` |
+| Projects and project descriptions | `src/data/projects.js` |
+| Technical skills | `src/data/skills.js` |
+| Professional experience | `src/data/experience.js` |
+| Colours, typography, and spacing | `src/styles/variables.css` |
+
+Project detail pages are generated dynamically from the project data, making it easier to add, update, or remove projects.
+
+---
+
+## Deployment
+
+This project can be deployed as a static website using [Vercel](https://vercel.com/).
+
+1. Push the repository to GitHub.
+2. Import the repository into Vercel.
+3. Select **Vite** as the framework preset.
+4. Set the build command to `npm run build`.
+5. Set the output directory to `dist`.
+6. Deploy.
+
+The project currently uses `HashRouter`, allowing it to work on static hosting without additional route configuration.
+
+---
+
+## License
+
+This project is intended to serve as a personal portfolio. Please contact me before reusing substantial portions of its design or implementation.
