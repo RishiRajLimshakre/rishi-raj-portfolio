@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Global responsive rules. Component-specific breakpoints live next to the
-   component's own CSS file; this file only adjusts shared primitives.
-   ========================================================================== */
+
 
 @media (max-width: 720px) {
   :root {
