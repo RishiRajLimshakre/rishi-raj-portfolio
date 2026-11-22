@@ -10,10 +10,26 @@
     />
     <meta name="author" content="Rishi Raj Limshakre" />
     <meta name="theme-color" content="#111111" />
-    <meta name="color-scheme" content="dark" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("portfolio-theme");
+        const theme = savedTheme === "light" ? "light" : "dark";
+
+        document.documentElement.dataset.theme = theme;
+
+        document.querySelector('meta[name="theme-color"]').content =
+          theme === "dark" ? "#111111" : "#f4f2eb";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <meta name="color-scheme" content="light dark" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Rishi Raj Limshakre — Software Developer" />
+    <meta
+      property="og:title"
+      content="Rishi Raj Limshakre — Software Developer"
+    />
     <meta
       property="og:description"
       content="Selected projects, skills and background of Rishi Raj Limshakre, software developer."

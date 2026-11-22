@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { navLinks, personal } from "../../data/personal";
 import { useActiveSection, useSectionNav } from "../../hooks/useSectionNav";
 import "./Navbar.css";
 
 const SECTION_IDS = ["work", "about", "contact"];
 
-export default function Navbar() {
+export default function Navbar({ theme, onToggleTheme }) {
   const { pathname } = useLocation();
   const goToSection = useSectionNav();
   const isHome = pathname === "/";
@@ -17,7 +17,6 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const toggleRef = useRef(null);
 
-  // Border appears once the page has scrolled.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -25,27 +24,27 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close the mobile menu on route change.
   useEffect(() => setMenuOpen(false), [pathname]);
 
-  // Escape closes the menu; body scroll is locked while it is open.
   useEffect(() => {
     if (!menuOpen) return undefined;
+
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
         setMenuOpen(false);
         toggleRef.current?.focus();
       }
     };
+
     document.addEventListener("keydown", onKeyDown);
     document.documentElement.style.overflow = "hidden";
+
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.documentElement.style.overflow = "";
     };
   }, [menuOpen]);
 
-  // Close the menu if the viewport grows past the mobile breakpoint.
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 721px)");
     const onChange = (e) => e.matches && setMenuOpen(false);
@@ -66,9 +65,13 @@ export default function Navbar() {
   return (
     <header className={`navbar ${scrolled || menuOpen ? "is-scrolled" : ""}`}>
       <div className="container navbar__inner">
-        <Link to="/" className="navbar__wordmark" onClick={handleWordmarkClick} aria-label={`${personal.fullName}, home`}>
+        <Link
+          to="/"
+          className="navbar__wordmark"
+          onClick={handleWordmarkClick}
+          aria-label={`${personal.fullName}, home`}
+        >
           <span className="navbar__mark">{personal.initials}</span>
-          {/* <span className="navbar__name">{personal.fullName}</span> */}
         </Link>
 
         <nav className="navbar__nav" aria-label="Primary">
@@ -76,9 +79,13 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <li key={link.id}>
                 <a
-                  href={`#/`}
-                  className={`navbar__link ${activeId === link.id ? "is-active" : ""}`}
-                  aria-current={activeId === link.id ? "location" : undefined}
+                  href="#/"
+                  className={`navbar__link ${
+                    activeId === link.id ? "is-active" : ""
+                  }`}
+                  aria-current={
+                    activeId === link.id ? "location" : undefined
+                  }
                   onClick={(event) => handleSectionClick(event, link.id)}
                 >
                   <span className="navbar__link-index">{link.index}</span>
@@ -89,6 +96,21 @@ export default function Navbar() {
           </ul>
         </nav>
 
+        {/* Theme toggle */}
+        <button
+          type="button"
+          className="navbar__theme-toggle"
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          onClick={(event) => onToggleTheme(event.currentTarget)}
+        >
+          {theme === "dark" ? (
+            <Sun size={19} aria-hidden="true" />
+          ) : (
+            <Moon size={19} aria-hidden="true" />
+          )}
+        </button>
+
         <button
           ref={toggleRef}
           type="button"
@@ -98,7 +120,11 @@ export default function Navbar() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          {menuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
+          {menuOpen ? (
+            <X size={22} aria-hidden="true" />
+          ) : (
+            <Menu size={22} aria-hidden="true" />
+          )}
         </button>
       </div>
 

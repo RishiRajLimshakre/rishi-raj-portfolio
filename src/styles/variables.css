@@ -4,7 +4,7 @@
    ========================================================================== */
 
 :root {
-  /* Colour */
+  /* Colour — Dark theme (default) */
   --color-background: #111111;
   --color-surface: #191919;
   --color-surface-raised: #1f1f1f;
@@ -16,6 +16,7 @@
   --color-border: #303030;
   --color-border-strong: #4a4a4a;
   --color-on-accent: #111111;
+  --color-nav-background: rgba(17, 17, 17, 0.9);
 
   /* Typography */
   --font-sans: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
@@ -44,4 +45,68 @@
   --duration-fast: 160ms;
   --duration: 260ms;
   --duration-slow: 600ms;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-background: #f4f2eb;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ebe9e1;
+  --color-accent: #748b24;
+  --color-accent-hover: #60751c;
+  --color-accent-faint: rgba(116, 139, 36, 0.09);
+  --color-text-primary: #191a16;
+  --color-text-secondary: #686b62;
+  --color-border: #deddd4;
+  --color-border-strong: #c5c3b9;
+  --color-on-accent: #ffffff;
+  --color-nav-background: rgba(244, 242, 235, 0.9);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Organic theme transition */
+@supports (view-transition-name: root) {
+  ::view-transition-group(root) {
+    animation-duration: 850ms;
+  }
+
+  ::view-transition-old(root) {
+    animation: none;
+    z-index: 1;
+  }
+
+  ::view-transition-new(root) {
+    animation: theme-ink-reveal 850ms cubic-bezier(0.22, 0.75, 0.2, 1) forwards;
+    z-index: 2;
+  }
+
+  @keyframes theme-ink-reveal {
+    from {
+      clip-path: circle(
+        0 at var(--theme-origin-x, 50vw) var(--theme-origin-y, 50vh)
+      );
+    }
+
+    to {
+      clip-path: circle(
+        var(--theme-reveal-radius, 150vmax) at var(--theme-origin-x, 50vw)
+          var(--theme-origin-y, 50vh)
+      );
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root) {
+    animation-duration: 1ms !important;
+  }
+
+  ::view-transition-new(root) {
+    animation-duration: 1ms !important;
+  }
 }
